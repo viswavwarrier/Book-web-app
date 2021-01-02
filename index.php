@@ -17,7 +17,7 @@
 <td> <input class="form-control" name="pass" type="password" ></td></tr>
 <tr> 
 <td></td>
-<td><button class="btn btn-success" name="btn">login</button></td>
+<td><button class="btn btn-primary" name="btn">login</button></td>
     </tr></table>
     </form>
 </body>
