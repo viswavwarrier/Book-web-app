@@ -45,15 +45,15 @@ if(isset($_POST['btn']))
           <td> <input name='id' type='hidden' value='$getid' class='form-control'></td>
       </tr><tr>
               <td>Author</td>
-              <td> <input type='text' value='$getauthor' class='form-control'></td>
+              <td> <input name='newauthor' type='text' value='$getauthor' class='form-control'></td>
           </tr>
           <tr>
               <td>Price</td>
-              <td>  <input type='text' value='$getprice' class='form-control'></td>
+              <td>  <input name='newprice' type='text' value='$getprice' class='form-control'></td>
           </tr>
           <tr>
         <td></td>
-       <td><button name='delbtn' class='btn btn-danger'>DELETE</button></td>
+       <td><button name='upbtn' class='btn btn-success'>UPDATE</button></td>
     </tr></table> </form>";
        }
      }
@@ -63,20 +63,22 @@ if(isset($_POST['btn']))
      }
 }
 
-if(isset($_POST['delbtn']))
+if(isset($_POST['upbtn']))
 {
     $newid=$_POST['id'];
+    $newauthor=$_POST['newauthor'];
+    $newprice=$_POST['newprice'];
     $connection=new mysqli("localhost","root","","bookdemo");
-   $sql="DELETE FROM `books` WHERE `id`=$newid"; 
+   $sql=" UPDATE `books` SET `author`='$newauthor',`price`=$newprice WHERE `id`=$newid"; 
 
    $result=$connection->query($sql);
    if($result===true)
    {
-       echo"Deleted Successfully";
+       echo"Updated Successfully";
    }
    else
    {
-    echo"Something wrong";
+    echo"Error in updation";
    }
    
 }
